@@ -1,0 +1,100 @@
+{% extends 'main_site/base.html' %}
+{% load static %}
+
+
+{% block title %}
+<title>Emeruche Cole | BLERMO</title>
+{% endblock %}
+
+{% block content %}
+
+<nav id='Navbar' class="navbar sticky-top navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">cole</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav mx-auto">
+                <a class="nav-item nav-link" href="/#about">About <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/#services">Services</a>
+                <a class="nav-item nav-link" href="/#portfolio">Portfolio</a>
+                <a class="nav-item nav-link" href="/#contact">Contact</a>
+            </div>
+
+            <div class="text-center social-nav" style="letter-spacing:1px">
+              <a target="_blank" href="http://instagram.com/cole_ruche"><i class="fab fa-instagram"></i></a>
+              <a target="_blank" href="https://www.linkedin.com/in/cole-emeruche-110124136/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<section>
+    <div class="container">
+        <h2 class="heading">my MDB (Movie Database)</h2>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="intro">
+                    <h3 class="work-heading">Overview</h3>
+                    <p><span>My MDB</span> is an app that displays full details about movies I have seen since January 2019.
+                    </p>
+                </div>
+                <img class="mt-4 img-fluid work-image" src="{% static 'main_site/img/movie1.png' %}" alt="">
+                <div class="the-problem">
+                    <h3 class="work-heading">The Problem</h3>
+                    <p>I needed a platform to hold the details of the movies I have seen - for no particular reason.
+                        <br>
+                        I also needed a project to earn Reat js with, and I thought of doing this with it.
+                    </p>
+                </div>
+                <!--<div class="the-Solution">-->
+                    <!--<h3 class="work-heading">The Solution</h3>-->
+                    <!--<p>After thoughts on how to go about this, I thought of the SoloLearn app, a communty solely for-->
+                        <!--developers to post and ask coding related questions, and learn by doing so.</p>-->
+                    <!--<p>And I thought something like that should exist for medical students, too.</p>-->
+                <!--</div>-->
+                <img class="mt-4 img-fluid work-image" src="{% static 'main_site/img/movie2.png' %}"
+                     alt="screenshot">
+                <div class="features">
+                    <h3 class="work-heading">Features</h3>
+                    <p>The app fetches just a simple data of movie names aand year of release from my local django admin backend.
+                        <br>
+                        It then runs an api query to omdb.com with the details. The full movie details is now displaed in react frontend.
+                    </p>
+                    <p>The site is fully responsive.</p>
+                </div>
+                <!--<img class="mt-4 img-fluid work-image" src="{% static 'main_site/img/movie3.png' %}" alt="">-->
+                <!--<div class="challenges">-->
+                    <!--<h3 class="work-heading">Challenges Faced</h3>-->
+                    <!--<p>Starting out, I had an issue deciding whether to make the app an Instagram-like app, for pictures-->
+                        <!--with short-text, or article-based like Medium. <br>-->
+                        <!--I went for the later, for some reason. <br> I also faced issues about higher functionalities-->
+                        <!--like a notification system, to know who liked your posts or followed you and all. That is still-->
+                        <!--a challenge, as I have still not figured out how to implement it.-->
+                    <!--</p>-->
+                <!--</div>-->
+                <div class="tools">
+                    <h3 class="work-heading">Tools Used</h3>
+                    <p>React (with Redux), Django</p>
+                </div>
+
+                <!--<div class="row">-->
+                    <!--<div class="col-md-6">-->
+                        <!--<img class="mt-4 img-fluid work-image" src="{% static 'main_site/img/blermo4.png' %}" alt="">-->
+                    <!--</div>-->
+                    <!--<div class="col-md-6">-->
+                        <!--<img class="mt-4 img-fluid work-image" src="{% static 'main_site/img/blermo6.png' %}" alt="">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <img class="mt-4 img-fluid work-image" src="{% static 'main_site/img/movie4.png' %}" alt="">
+                <a href="https://colemovies.herokuapp.com" target="_blank"><p class="to-project text-center">Go to project</p></a>
+            </div>
+        </div>
+        <a style="color: #212529" href="{% url 'index' %}"><i
+                class="fas fa-arrow-left" style="font-size: 13px"></i> <span>Back to home</span></a>
+    </div>
+</section>
+{% endblock %}

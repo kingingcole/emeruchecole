@@ -1,0 +1,197 @@
+{% extends 'main_site/base.html' %}
+{% load static %}
+
+{% block content %}
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="welcome col-lg-8 col-md-12 mx-auto">
+                <p class="font-italic">Hey there, nice to have you here!</p>
+                <h1>I'm <span>Emeruche Cole</span>, a web developer from Nigeria</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav id='nav-bar' class="navbar sticky-top navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">cole</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav mx-auto">
+                <a class="nav-item nav-link active" href="#about">About <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#services">Services</a>
+                <a class="nav-item nav-link" href="#portfolio">Portfolio</a>
+                <a class="nav-item nav-link" href="#contact">Contact</a>
+            </div>
+
+            <div class="text-center social-nav" style="letter-spacing:1px">
+              <a target="_blank" href="http://instagram.com/cole_ruche"><i class="fab fa-instagram"></i></a>
+              <a target="_blank" href="https://www.linkedin.com/in/cole-emeruche-110124136/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section id="about">
+    <div class="container">
+        <h2 class="heading">About me</h2>
+        <div class="row">
+            <div class="col-md-5 col-lg-6 my-auto text-center">
+                <img src="{% static 'main_site/img/me3.jpg' %}" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-7 col-lg-6 my-auto">
+                <p>My name is Emeruche Ikenna Cole, <b>a fullstack programmer, and a website and web app developer</b>
+                    with an eye for pixel-perfect designs.
+                    I'm also a <b>medical student</b> in a top-rated medical college here in Nigeria - but hey, life's
+                    too short to do one thing, right? I was born 26th, October, in the late 90's and I'd like to
+                    describe myself as a <b>dedicated person</b> and <b>risk-taker</b>, which I believe is the spice of
+                    life. <br>
+                    I have tried out a lot of 'adventures' - <b>dropshipping on Shopify (did not work out too well),
+                        binary and crypto trading</b> - which all taught me, among a host of other things, <i><b>perseverance,
+                        dedication</b> and <b>time management</b>.</i><br>
+                    Currently, I'm open to all kinds of web developer jobs - remote, freelance, team-role.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <h2 class="heading">Skills & Services</h2>
+        <div class="row text-center">
+            <div class="col-12">
+                <h3 style="color: #616161">My Skills</h3>
+            </div>
+            <div class="col-6 col-md-3 mx-auto">
+                <i class="fab fa-html5"></i>
+                <h6>HTML5</h6>
+            </div>
+            <div class="col-6 col-md-3 mx-auto">
+                <i class="fab fa-css3-alt"></i>
+                <h6>CSS3</h6>
+            </div>
+            <div class="col-6 col-md-3 mx-auto">
+                <i class="fab fa-js"></i>
+                <h6>JavaScript</h6>
+            </div>
+            <div class="col-6 col-md-3 mx-auto">
+                <i class="fab fa-react"></i>
+                <h6>React JS</h6>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <i class="fab fa-python"></i>
+                <h6>Python - ( with Django and Django REST )</h5>
+            </div>
+
+            <div class="col-12 my-5">
+                <h3 style="color: #616161">My Services</h3>
+            </div>
+            <div class="col-md-4">
+                <i class="fa fa-desktop"></i>
+                <h5>Website and Web App Development</h5>
+            </div>
+
+            <div class="col-md-4">
+                <i class="fa fa-shopping-bag"></i>
+                <h5>E-commerce Solutions</h6>
+            </div>
+
+
+            <div class="col-md-4">
+                <i class="fa fa-globe-americas"></i>
+                <h5>SEO</h5>
+            </div>
+        </div>
+</section>
+
+<section id="portfolio">
+    <div class="container">
+        <h2 class="heading">Portfolio</h2>
+        <div class="row">
+            <div class="work col-md-6 mx-auto">
+                <a style="color: #212529"
+                   href="{% url 'blermo-work' %}"><h2
+                        class="mb-3">Blermo</h2></a>
+                <p>ongoing | personal</p>
+                <img src="{% static 'main_site/img/blermo1.png' %}" alt="blermo" class="img-fluid">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="text-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="heading">Contact</h2>
+                <div class="row">
+                    <div class="col-lg-7">
+                        {% if data %}
+                        <div class="mb-4">
+                            <p>Your message has been received. <br>Will reply as soon as I can</p>
+                        </div>
+                        {% endif %}
+                        <form id="contact-form" method="post" action="/#contact" class="contact-form">
+                            {% csrf_token %}
+                            <div class="controls">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Your firstname *</label>
+                                            <input type="text" name="name" placeholder="Enter your firstname"
+                                                   required="required" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="surname">Your lastname *</label>
+                                            <input type="text" name="surname" placeholder="Enter your  lastname"
+                                                   required="required" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="surname">Your email *</label>
+                                    <input type="email" name="email" placeholder="Enter your  email" required="required"
+                                           class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="surname">Your message for me *</label>
+                                    <textarea rows="4" name="message" placeholder="Enter your message"
+                                              required="required" class="form-control"></textarea>
+                                </div>
+                                <div class="mt-3 text-center">
+                                    <input type="submit" name="name" value="Send message" class="submit btn-block">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-5 my-auto text-center contact-text">
+                        <p>
+                            E-mail: <br> <a href="mailto: emeruchecole9@gmail.com">emeruchecole9@gmail.com</a>
+                        </p>
+                        <p>Feel free to shoot a message. <br>It may be work-related, or just to say 'hi'!</p>
+                        <p>Or you can reach me through my social accounts</p>
+                        <div class="social-media text-center" style="letter-spacing:1px">
+                            <a target="_blank" href="http://github.com/kingingcole"><i class="fab fa-github"></i></a>
+                            <a target="_blank" href="http://instagram.com/cole_ruche"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a target="_blank" href="https://www.linkedin.com/in/cole-emeruche-110124136/"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a target="_blank" href="https://stackoverflow.com/users/10565397/cole"><i
+                                    class="fab fa-stack-overflow"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
